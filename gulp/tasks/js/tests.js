@@ -2,8 +2,8 @@
  * Karma Task
  *
 **/
-gulp.task('karma', function() {
-  let configurator = require('../tests/karma.conf.js'),
+gulp.task('test:unit', function() {
+  let configurator = require('../../../tests/karma.conf.js'),
 
   configs = {
     LOG_INFO: "INFO",
@@ -13,10 +13,11 @@ gulp.task('karma', function() {
       }
     }
   };
+
   configurator(configs);
   configs.singleRun = true;
 
-  karma.server.start(configs, function(exitCode) {
+  $.karma.server.start(configs, function(exitCode) {
     if (exitCode === 0) {
       // gulp.start('dist');
     }
