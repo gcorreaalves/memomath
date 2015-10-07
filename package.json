@@ -26,7 +26,9 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "phantomjs": "^1.9.18",
     "protractor": "^2.1.0",
-    "run-sequence": "^1.1.2"
+    "run-sequence": "^1.1.2",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "require-dir": "^0.3.0"
   },
   "engines": {
     "node": "0.12.2"
