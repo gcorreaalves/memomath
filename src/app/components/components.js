@@ -10,6 +10,7 @@
   angular.module('app.components', [
       'app.components.core'
     , 'app.components.dashboard'
-    , 'app.components.sample'
+    , 'app.components.game'
+    , 'app.components.board'
   ]);
 })();
