@@ -1,5 +1,18 @@
-<button class="btn">Play Game</button>
-
-<div ng-controller="BoardController as vm">
-  <board></board>
+<div ng-hide="vm.is_playing">
+  <div class="form-group">
+    <label>Player:</label> <input type="text" ng-model="vm.Player" class="form-control">
+  </div>
+  <button class="btn" ng-click="vm.play()">Play Game</button>
+</div>
+<div ng-show="vm.is_playing">
+  <header class="game">
+    <div class="pull-right">
+      <b>Player:</b> {{vm.Player}} |
+      <b>Score:</b> 0/10 |
+      <b>Time:</b> {{vm.time}}
+    </div>
+  </header>
+  <div ng-controller="BoardController as vm">
+    <board></board>
+  </div>
 </div>
