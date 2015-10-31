@@ -15,6 +15,7 @@ module.exports = function(config) {
       './src/assets/js/vendor.min.js',
       './src/bower/angular-mocks/angular-mocks.js',
       './src/assets/js/app.min.js',
+      './tests/unit/spec-helper.js',
       './tests/unit/**/*.spec.js',
     ],
     exclude: [],

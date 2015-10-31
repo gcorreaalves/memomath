@@ -17,7 +17,7 @@
     this.Player  = '';
     this.is_playing = true;
 
-    $scope.$on('game_completed', this.complete.bind(this));
+    $scope.$on('board_completed', this.complete.bind(this));
 
   }
 

@@ -31,18 +31,18 @@
       { id : 10, content : '100', pair : 9, shown : false },
       { id : 11, content : '$$ 8 \\over 2$$', pair : 12, shown : false },
       { id : 12, content : '4', pair : 11, shown : false }
-    ].sort(function() { return 0.5 - Math.random() });
+    ].sort( () => 0.5 - Math.random() );
 
     this.complete = function(){
       if( this.is_completed() ){
-        $scope.$emit('game_completed', 'Some data');
+        $scope.$emit('board_completed', 'Some data');
       }
     };
 
     this.open_piece = function(id){
-      this.pieces.forEach(function(piece){
-        if( piece.id === id){
-          piece.shown = true;
+      this.pieces.find( (element, index, array) => {
+        if( element.id === id){
+          element.shown = true;
         }
       });
     };
@@ -67,9 +67,7 @@
 
     let pieces = this.pieces_opened;
 
-    store_hits.call(this, pieces);
-
-    this.complete();
+    this.store_hits(pieces);
 
   };
 
@@ -77,29 +75,31 @@
     return this.hits === (this.pieces.length / 2);
   };
 
-  function check_pair(pieces){
+  Controller.prototype.check_pair = function(pieces){
     if(pieces[0].id === pieces[1].pair){
       return true;
     }
     return false;
   };
 
-  function store_hits(pieces){
+  Controller.prototype.store_hits = function(pieces){
     let total_pieces = this.total_pieces_opened;
-    if( pieces.length === 2 ){
-      if( check_pair( pieces ) ){
-        if( total_pieces.indexOf( pieces[0] ) === -1 ){
-          this.hits++;
-          total_pieces.push(pieces[0])
-          total_pieces.push(pieces[1]);
-        }
-      }else{
-        pieces.forEach(function(piece){
-          this.close_piece(piece.id);
-        }.bind(this));
-      }
-      pieces.length = 0;
+    if( pieces.length < 2 ){
+      return false;
     }
+    if( this.check_pair( pieces ) ){
+      if( total_pieces.indexOf( pieces[0] ) === -1 ){
+        this.hits++;
+        total_pieces.push(...pieces);
+        this.complete();
+      }
+    }else{
+      pieces.forEach( (piece) => {
+        this.close_piece(piece.id);
+      });
+    }
+    pieces.length = 0;
+    return true;
   };
 
 })();
