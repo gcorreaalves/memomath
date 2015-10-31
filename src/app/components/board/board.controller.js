@@ -19,19 +19,19 @@
     this.total_pieces_opened = [];
 
     this.pieces = [
-      { id : 1, content : '1', pair : 2, shown : false },
+      { id : 1, content : "$$9 - 7$$", pair : 2, shown : false },
       { id : 2, content : '2', pair : 1, shown : false },
-      { id : 3, content : '3', pair : 4, shown : false },
-      { id : 4, content : '4', pair : 3, shown : false },
-      { id : 5, content : '5', pair : 6, shown : false },
-      { id : 6, content : '6', pair : 5, shown : false },
-      { id : 7, content : '7', pair : 8, shown : false },
-      { id : 8, content : '8', pair : 7, shown : false },
-      { id : 9, content : '9', pair : 10, shown : false },
-      { id : 10, content : '10', pair : 9, shown : false },
-      { id : 11, content : '11', pair : 12, shown : false },
-      { id : 12, content : '12', pair : 11, shown : false }
-    ];
+      { id : 3, content : '$${ x + 5 \\over 2} = 10$$', pair : 4, shown : false },
+      { id : 4, content : '15', pair : 3, shown : false },
+      { id : 5, content : '$$2+2$$', pair : 6, shown : false },
+      { id : 6, content : '4', pair : 5, shown : false },
+      { id : 7, content : '3', pair : 8, shown : false },
+      { id : 8, content : '$$ \\sqrt{9} $$', pair : 7, shown : false },
+      { id : 9, content : '$$ 10.10 $$', pair : 10, shown : false },
+      { id : 10, content : '100', pair : 9, shown : false },
+      { id : 11, content : '$$ 8 \\over 2$$', pair : 12, shown : false },
+      { id : 12, content : '4', pair : 11, shown : false }
+    ].sort(function() { return 0.5 - Math.random() });
 
     this.complete = function(){
       if( this.is_completed() ){

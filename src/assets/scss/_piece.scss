@@ -1,0 +1,12 @@
+.board__piece{
+  border: 1px solid #ccc;
+  height: 60px;
+  line-height: 60px;
+  margin-bottom: 10px;
+  a, div{
+    display: block;
+    height: 100%;
+    margin: 0;
+    width: 100%;
+  }
+}
