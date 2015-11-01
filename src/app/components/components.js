@@ -12,5 +12,6 @@
     , 'app.components.dashboard'
     , 'app.components.game'
     , 'app.components.board'
+    , 'app.components.player'
   ]);
 })();

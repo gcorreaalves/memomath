@@ -32,6 +32,6 @@
 
   Controller.prototype.game_over = function(){
     this.is_playing = false;
-  }
+  };
 
 })();
