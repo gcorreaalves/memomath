@@ -1,0 +1,23 @@
+<h1>Jogadores</h1>
+<table class="table table-striped table-hover" ng-init="vm.list();">
+  <tr>
+    <td>ID</td>
+    <td>Nome</td>
+    <td>Email</td>
+    <td>Tentativas</td>
+  </tr>
+  <tr ng-repeat="player in vm.players">
+    <td>
+      {{player.id}}
+    </td>
+    <td>
+      {{player.name}}
+    </td>
+    <td>
+      {{player.email}}
+    </td>
+    <td>
+      <a href="javascript:;">Ver Desempenho</a>
+    </td>
+  </tr>
+</table>

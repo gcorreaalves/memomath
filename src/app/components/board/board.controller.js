@@ -10,9 +10,14 @@
 
   angular.module('app.components.board').controller('BoardController', Controller);
 
+  let Scope, Timeout;
+
   Controller.$inject = ['$scope', '$timeout'];
 
   function Controller($scope, $timeout) {
+
+    Scope   = $scope;
+    Timeout = $timeout;
 
     this.hits = 0;
     this.pieces_opened = [];
@@ -33,31 +38,39 @@
       { id : 12, content : '4', pair : 11, shown : false }
     ].sort( () => 0.5 - Math.random() );
 
-    this.complete = function(){
-      if( this.is_completed() ){
-        $scope.$emit('board_completed', 'Some data');
-      }
-    };
-
-    this.open_piece = function(id){
-      this.pieces.find( (element, index, array) => {
-        if( element.id === id){
-          element.shown = true;
-        }
-      });
-    };
-
-    this.close_piece = function(id){
-      this.pieces.forEach(function(piece){
-        if( piece.id === id){
-          $timeout(function(){
-            piece.shown = false;
-          }, 2000);
-        }
-      });
-    };
-
   }
+
+  Controller.prototype.close_piece = function(id){
+    this.pieces.forEach(function(piece){
+      if( piece.id === id){
+        Timeout(function(){
+          piece.shown = false;
+        }, 2000);
+      }
+    });
+  };
+
+  Controller.prototype.open_piece = function(id){
+    this.pieces.find( (element, index, array) => {
+      if( element.id === id){
+        element.shown = true;
+      }
+    });
+  };
+
+  Controller.prototype.open_piece = function(id){
+    this.pieces.find( (element, index, array) => {
+      if( element.id === id){
+        element.shown = true;
+      }
+    });
+  };
+
+  Controller.prototype.complete = function(){
+    if( this.is_completed() ){
+      Scope.$emit('board_completed', 'Some data');
+    }
+  };
 
   Controller.prototype.handle_choice = function(piece){
 

@@ -8,7 +8,7 @@ module.exports = function(app){
 
     create(name, email){
       let resolver = promise.pending();
-      Player.create(name, email)
+      Player.create({ 'name' : name, 'email' : email })
       .then(function(row) {
         resolver.resolve(row);
       }).catch(function(error) {
@@ -30,7 +30,7 @@ module.exports = function(app){
 
     list(){
       let resolver = promise.pending();
-      Player.all()
+      Player.sort('id')
       .then(function(rows) {
         resolver.resolve(rows);
       }).catch(function(error) {

@@ -5,8 +5,8 @@ module.exports = function(app) {
   app.post('/player', function(req, res){
 
     let {name, email} = req.body;
-
-    Player.create(req.body)
+    
+    Player.create(name, email)
     .done(function(result){
       res.sendStatus(201);
     }, function(error){

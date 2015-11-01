@@ -4,13 +4,12 @@ import express from 'express';
 import load from 'express-load';
 import bodyParser  from 'body-parser';
 
-// global.DB = db;
-
 let app = express();
 let dir = process.cwd();
 let dir_app = dir + '/app';
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.set('views', dir + '/dist');
 app.use(express.static(dir  + '/dist', { index: false }));
 

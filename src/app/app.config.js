@@ -13,7 +13,6 @@
   **/
   const PRODUCTION = {
       VERSION: '0.0.1'
-
     , API_URL: ''
     , API_VERSION: ''
   };
@@ -22,7 +21,7 @@
    * Development info
   **/
   const DEVELOPMENT = {
-      API_URL: ''
+      API_URL: '//localhost:3000'
     , API_VERSION: ''
   };
 
@@ -42,9 +41,9 @@
     let $window = $windowProvider.$get();
     let app = PRODUCTION;
     let env = 'production';
-    let devHosts = ['localhost', '127.0.0.1'];
+    let dev_hosts = ['localhost', '127.0.0.1'];
 
-    if(devHosts.indexOf($window.location.hostname) !== -1){
+    if(dev_hosts.indexOf($window.location.hostname) !== -1){
       env = 'development';
     }
     if($window.ENV === 'test' || $window.location.port === '9876'){
