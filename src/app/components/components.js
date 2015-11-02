@@ -10,9 +10,9 @@
   angular.module('app.components', [
       'app.components.core'
     , 'app.components.dashboard'
+    , 'app.components.question'
     , 'app.components.game'
     , 'app.components.board'
     , 'app.components.player'
-    , 'app.components.question'
   ]);
 })();
