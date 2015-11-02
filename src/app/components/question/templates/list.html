@@ -1,0 +1,27 @@
+<h1>Questões</h1>
+<table class="table table-striped table-hover" ng-init="vm.list();">
+  <tr>
+    <td class="text-center">ID</td>
+    <td class="text-center">Question</td>
+    <td class="text-center">Answer</td>
+    <td class="text-center">Level</td>
+    <td>Ações</td>
+  </tr>
+  <tr ng-repeat="question in vm.questions">
+    <td class="text-center">
+      {{question.id}}
+    </td>
+    <td class="text-center">
+      {{question.question}}
+    </td>
+    <td class="text-center">
+      {{question.answer}}
+    </td>
+    <td class="text-center">
+      {{question.level}}
+    </td>
+    <td>
+      <a href="javascript:;">Editar</a>
+    </td>
+  </tr>
+</table>

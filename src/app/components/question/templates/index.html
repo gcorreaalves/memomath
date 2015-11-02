@@ -1,0 +1,16 @@
+<h1>Cadastre a questão</h1>
+<form ng-submit="vm.create()">
+  <div class="form-group">
+    <label>Question</label>
+    <input class="form-control" ng-model="vm.question.question">
+  </div>
+  <div class="form-group">
+    <label>Answer</label>
+    <input class="form-control" ng-model="vm.question.answer">
+  </div>
+  <div class="form-group">
+    <label>Level</label>
+    <input class="form-control" type="number"  min="1" max="5" ng-model="vm.question.level">
+  </div>
+  <button class="btn btn-primary btn-block">Submit</button>
+</form>
