@@ -1,7 +1,7 @@
 /**
- * Events service
+ * Player service
  *
- * Link: https://gist.github.com/turtlemonvh/10686980
+ * @author Gustavo Alves - contato@gustavocalves.com.br
  *
  */
 

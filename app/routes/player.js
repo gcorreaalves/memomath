@@ -1,11 +1,11 @@
 module.exports = function(app) {
 
-  var Player = new app.controllers.PlayerController();
+  let Player = new app.controllers.PlayerController();
 
   app.post('/player', function(req, res){
 
     let {name, email} = req.body;
-    
+
     Player.create(name, email)
     .done(function(result){
       res.sendStatus(201);
