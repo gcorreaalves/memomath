@@ -19,7 +19,7 @@ gulp.task('test:unit', function() {
 
   $.karma.server.start(configs, function(exitCode) {
     if (exitCode === 0) {
-      // gulp.start('dist');
+      gulp.start('dist');
     }
   });
 });

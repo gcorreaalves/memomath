@@ -20,7 +20,7 @@
     this.player = {
         name  : ''
       , email : ''
-    }
+    };
   }
 
   Controller.prototype.create = function(){
@@ -43,6 +43,6 @@
     }, (errors) => {
 
     });
-  }
+  };
 
 })();

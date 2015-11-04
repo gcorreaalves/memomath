@@ -15,7 +15,7 @@
   function Service(APP, $http) {
 
     this.create = function(question){
-      return $http.post(`${APP.API_URL}/question`, question)
+      return $http.post(`${APP.API_URL}/question`, question);
     };
 
     this.list = function(){

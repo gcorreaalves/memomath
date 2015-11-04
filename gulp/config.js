@@ -54,7 +54,7 @@ global['config'] = module.exports = {
   },
 
   /**
-   * App templates files
+   * Angular templates files
   **/
   templates : {
       srcs: ['./src/app/components/**/*.html']
@@ -90,10 +90,12 @@ global['config'] = module.exports = {
   **/
   linter : {
     srcs: [
-        './src/app/**/*.js'
+        './app/**/*.js'
+      , './src/app/**/*.js'
       , '!./src/app/**/templates.js'
       , '!./gulp/**/*.js'
       , './gulpfile.js'
+      , './app.js'
       , './server.js'
       , './tests/**/*.js'
       , '!./tests/coverage/**/*'

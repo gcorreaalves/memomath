@@ -21,7 +21,7 @@
         question  : ''
       , answer    : ''
       , level     : 1
-    }
+    };
   }
 
   Controller.prototype.create = function(){
@@ -44,6 +44,6 @@
     }, (errors) => {
 
     });
-  }
+  };
 
 })();

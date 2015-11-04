@@ -27,8 +27,7 @@
     let deferred = q.defer();
     let result = this.get_questions();
     result.then((data) => {
-      var questions = this.questions_to_pieces(data.data);
-      questions = this.suffle(questions);
+      let questions = this.questions_to_pieces(data.data);
       deferred.resolve(questions);
     }, (errors) => {
       deferred.reject(errors);
@@ -66,7 +65,7 @@
 
     });
 
-    return pieces;
+    return this.suffle(pieces);
   };
 
 })();

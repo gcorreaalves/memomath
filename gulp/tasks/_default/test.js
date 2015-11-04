@@ -1,1 +1,1 @@
-gulp.task('test', ['karma']);
+gulp.task('test', ['test:unit']);

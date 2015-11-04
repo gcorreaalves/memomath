@@ -5,11 +5,13 @@
     .module('app.components.board')
     .directive('piece', Directive);
 
-    function Directive(){
+    Directive.$inject = ['MathService'];
+
+    function Directive(MathService){
       return {
         link: function(scope, element, attrs) {
           element.on('click', function(event) {
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+            MathService.Hub.Queue(["Typeset",MathService.Hub]);
           });
         },
         restrict : 'EA',

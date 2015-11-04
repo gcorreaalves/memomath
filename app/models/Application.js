@@ -11,10 +11,10 @@ function make_model_methods(schema){
         let obj = {};
         obj[prop] = value;
         return this.model.find( obj );
-      }
+      };
     }
   }
-};
+}
 
 class Application{
 
@@ -28,7 +28,7 @@ class Application{
 
   create(object){
     return this.model.findOne((err, row) => {
-      object['id'] = row.id + 1;
+      object.id = row.id + 1;
       return this.model.collection.insert(object);
     }).sort({ "id" : -1 });
   }
@@ -54,4 +54,4 @@ class Application{
 
 }
 
-module.exports = function(app){ return Application };
+module.exports = function(app){ return Application; };
