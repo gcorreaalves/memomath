@@ -44,7 +44,7 @@
   };
 
   Controller.prototype.close_piece = function(id){
-    this.pieces.forEach(function(piece){
+    this.pieces.find( (piece) => {
       if( piece.id === id){
         Timeout(function(){
           piece.shown = false;
@@ -74,7 +74,7 @@
 
   Controller.prototype.complete = function(){
     if( this.is_completed() ){
-      Scope.$emit('board_completed', 'Some data');
+      Scope.$emit('board_completed', true );
     }
   };
 
@@ -97,8 +97,12 @@
       pieces.forEach( (piece) => {
         this.close_piece(piece.id);
       });
+      Scope.$emit('board_hit_error', this.pieces);
     }
     pieces.length = 0;
+
+    Scope.$emit('board_hit', true);
+
     return true;
   };
 

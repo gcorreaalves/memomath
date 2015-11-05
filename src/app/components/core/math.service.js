@@ -13,11 +13,7 @@
   Service.$inject = ['$window'];
 
   function Service($window) {
-
-    console.log($window.MathJax);
-
     return $window.MathJax;
-
   }
 
 })();

@@ -4,7 +4,7 @@
     <td>ID</td>
     <td>Nome</td>
     <td>Email</td>
-    <td>Qt. Tentativas</td>
+    <td class="text-center">Qt. Tentativas</td>
   </tr>
   <tr ng-repeat="attempt in vm.attempts">
     <td>
@@ -16,7 +16,7 @@
     <td>
       {{attempt.email}}
     </td>
-    <td>
+    <td class="text-center">
       {{attempt.attempts.length}}
     </td>
   </tr>
