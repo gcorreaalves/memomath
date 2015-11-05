@@ -1,0 +1,23 @@
+<h1>Tentativas</h1>
+<table class="table table-striped table-hover" ng-init="vm.list();">
+  <tr>
+    <td>ID</td>
+    <td>Nome</td>
+    <td>Email</td>
+    <td>Qt. Tentativas</td>
+  </tr>
+  <tr ng-repeat="attempt in vm.attempts">
+    <td>
+      {{attempt.id}}
+    </td>
+    <td>
+      {{attempt.name}}
+    </td>
+    <td>
+      {{attempt.email}}
+    </td>
+    <td>
+      {{attempt.attempts.length}}
+    </td>
+  </tr>
+</table>

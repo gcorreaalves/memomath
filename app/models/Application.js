@@ -28,7 +28,9 @@ class Application{
 
   create(object){
     return this.model.findOne((err, row) => {
-      object.id = row.id + 1;
+      let id = 0;
+      if( row ) id = row.id;
+      object.id = id + 1;
       return this.model.collection.insert(object);
     }).sort({ "id" : -1 });
   }

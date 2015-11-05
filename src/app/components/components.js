@@ -14,5 +14,6 @@
     , 'app.components.game'
     , 'app.components.board'
     , 'app.components.player'
+    , 'app.components.attempt'
   ]);
 })();
