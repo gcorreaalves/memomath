@@ -3,6 +3,8 @@
     <label>Player:</label> <input type="text" ng-model="vm.Player" class="form-control">
   </div>
   <button class="btn" ng-click="vm.play()">Play Game</button>
+
+  <countdown ng-model="vm.time"></countdown>
 </div>
 <div ng-show="vm.is_playing">
   <header class="game">

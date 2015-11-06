@@ -17,7 +17,7 @@
   function Controller($scope, AttemptService) {
 
     AService = AttemptService;
-
+    this.time = 86400;
     this.Player  = '';
     this.is_playing = false;
 
