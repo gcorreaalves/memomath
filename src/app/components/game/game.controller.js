@@ -10,25 +10,28 @@
 
   angular.module('app.components.game').controller('GameController', Controller);
 
-  let AService;
+  let Scope, AService;
 
   Controller.$inject = ['$scope', 'AttemptService'];
 
   function Controller($scope, AttemptService) {
 
+    Scope = $scope;
     AService = AttemptService;
-    this.time = 86400;
+
     this.Player  = '';
     this.is_playing = false;
 
     this.hit_errors = 0;
 
-    $scope.$on('board_completed', this.complete.bind(this));
-    $scope.$on('board_hit_error', this.count_hit_errors.bind(this));
+    Scope.$on('board_completed', this.complete.bind(this));
+    Scope.$on('board_hit_error', this.count_hit_errors.bind(this));
+    Scope.$on('countdown', this.game_over.bind(this));
 
   }
 
   Controller.prototype.play = function(){
+    this.time = 10;
     this.is_playing = true;
     this.start_game = new Date();
   };

@@ -44,11 +44,15 @@
         seconds = Math.floor((final - current) / 1000);
       }
 
-      countdown(element, seconds);
+      countdown(scope, element, seconds);
     }
 
-    function countdown(element, time){
-      if ( !time ) return false;
+    function countdown(scope, element, time){
+
+      if ( !time ){
+        scope.$emit('countdown', true) ;
+        return;
+      };
 
       let t = time;
 
@@ -62,7 +66,7 @@
 
       html(element, days, hours, minutes, seconds);
 
-      Timeout(countdown, 1000, true, element, time-1);
+      Timeout(countdown, 1000, true, scope, element, time-1);
     };
 
     function html(element, ...date){
@@ -72,6 +76,5 @@
       .siblings('.minute').text(date[2])
       .siblings('.second').text(date[3]);
     }
-
 
 })();
