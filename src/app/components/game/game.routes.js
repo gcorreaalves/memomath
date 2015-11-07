@@ -22,6 +22,15 @@
           controller: 'GameController as vm'
         }
       }
+    })
+    .state('app.dashboard.game.play', {
+      url: '/play',
+      views: {
+        '@app.dashboard': {
+          templateUrl: 'game/game.html',
+          controller: 'GameController as vm'
+        }
+      }
     });
   }
 

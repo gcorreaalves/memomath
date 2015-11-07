@@ -1,0 +1,15 @@
+<div ng-if="!vm.is_playing">
+  <button class="btn" ng-click="vm.play()">Play Game</button>
+</div>
+<div ng-if="vm.is_playing">
+  <header class="game">
+    <div class="pull-right">
+      <b>Player:</b> {{vm.player.name}} |
+      <b>Score:</b> 0/10 |
+      <b>Time:</b> <countdown ng-model="vm.time"></countdown>
+    </div>
+  </header>
+  <div ng-controller="BoardController as vm">
+    <board></board>
+  </div>
+</div>

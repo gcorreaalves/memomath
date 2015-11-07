@@ -30,7 +30,7 @@ describe("BoardController", function(){
 
   it('Board is Completed', function() {
     BoardController.store_hits(pieces);
-    expect(scope.$emit).toHaveBeenCalledWith('board_completed', 'Some data');
+    expect(scope.$emit).toHaveBeenCalledWith('board_completed', true);
   });
 
 });

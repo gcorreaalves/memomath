@@ -10,13 +10,14 @@
 
   angular.module('app.components.player').controller('PlayerController', Controller);
 
-  let State, Service;
+  let State, Service, Session;
 
-  Controller.$inject = ['$state', 'PlayerService'];
+  Controller.$inject = ['$state', 'PlayerService', 'session'];
 
-  function Controller($state, PlayerService) {
+  function Controller($state, PlayerService, session) {
     State   = $state;
     Service = PlayerService;
+    Session = session;
     this.player = {
         name  : ''
       , email : ''
@@ -28,7 +29,11 @@
       let result = Service.create(this.player);
       result.then((data) => {
         if( data.status === 201 ){
-          State.go('app.dashboard.players');
+          Session.set('player', {
+              'name' : this.player.name
+            , 'email' : this.player.email
+          });
+          State.go('app.dashboard.game.play');
         }
       }, (errors) => {
 

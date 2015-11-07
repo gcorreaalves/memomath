@@ -10,16 +10,17 @@
 
   angular.module('app.components.game').controller('GameController', Controller);
 
-  let Scope, AService;
+  let Scope, State, AService, Session;
 
-  Controller.$inject = ['$scope', 'AttemptService'];
+  Controller.$inject = ['$scope', '$state', 'AttemptService', 'session'];
 
-  function Controller($scope, AttemptService) {
+  function Controller($scope, $state, AttemptService, session) {
 
-    Scope = $scope;
+    Scope    = $scope;
+    State    = $state;
     AService = AttemptService;
+    Session  = session;
 
-    this.Player  = '';
     this.is_playing = false;
 
     this.hit_errors = 0;
@@ -31,9 +32,19 @@
   }
 
   Controller.prototype.play = function(){
-    this.time = 10;
+    this.get_player();
+    this.time = 100;
     this.is_playing = true;
     this.start_game = new Date();
+  };
+
+  Controller.prototype.get_player = function () {
+    let player = Session.get('player');
+    if( player ){
+      this.player = player;
+    }else{
+      State.go('app.dashboard.game');
+    }
   };
 
   Controller.prototype.count_hit_errors = function(event, data){
@@ -62,8 +73,8 @@
   Controller.prototype.send_attempt = function(completed){
     let attempt = this;
     let data = {
-        name     : "Gustavo"
-      , email    : "gustavo@email.com"
+        name     : attempt.player.name
+      , email    : attempt.player.email
       , attempts : [ {
           level  : 1
         , errors : attempt.hit_errors
