@@ -24,5 +24,8 @@
     "lodash": "~3.10.1",
     "spin.js": "~2.3.2",
     "validate": "~0.8.0"
+  },
+  "resolutions": {
+    "spin.js": "~2.3.2"
   }
 }

@@ -1,9 +1,13 @@
 {
-  "name": "angular-init",
+  "name": "MemoMath",
   "version": "0.0.3",
   "author": "Gustavo Alves <contato@gustavocalves.com.br>",
   "license": "MIT",
   "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "postinstall": "./node_modules/bower/bin/bower install && gulp dist"
+  },
   "devDependencies": {
     "bower": "^1.4.1",
     "gulp": "^3.9.0",
