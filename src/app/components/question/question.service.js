@@ -18,6 +18,14 @@
       return $http.post(`${APP.API_URL}/question`, question);
     };
 
+    this.update = function(id, question){
+      return $http.put(`${APP.API_URL}/question/${id}`, question);
+    };
+
+    this.show = function(id){
+      return $http.get(`${APP.API_URL}/question/${id}`);
+    };
+
     this.list = function(){
       return $http.get(`${APP.API_URL}/questions`);
     };

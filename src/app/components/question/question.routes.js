@@ -23,6 +23,24 @@
         }
       }
     })
+    .state('app.dashboard.question.new', {
+      url: '/new',
+      views: {
+        '@app.dashboard': {
+          templateUrl: 'question/new.html',
+          controller: 'QuestionController as vm'
+        }
+      }
+    })
+    .state('app.dashboard.question.edit', {
+      url: '/edit/:id',
+      views: {
+        '@app.dashboard': {
+          templateUrl: 'question/edit.html',
+          controller: 'QuestionController as vm'
+        }
+      }
+    })
     .state('app.dashboard.questions', {
       url: 'questions',
       views: {

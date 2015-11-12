@@ -26,6 +26,19 @@ module.exports = function(app) {
     });
   });
 
+  app.put('/question/:id', function(req, res){
+
+    let id = req.params.id;
+    let {question, answer, level} = req.body;
+
+    Question.update(id, question, answer, level)
+    .done(function(data){
+      res.send( data );
+    }, function(error){
+      res.sendStatus(404);
+    });
+  });
+
   app.delete('/question/:id', function(req, res){
 
     let id = req.params.id;

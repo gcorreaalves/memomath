@@ -21,9 +21,24 @@ module.exports = function(app){
       return resolver.promise;
     }
 
+    update(id, question, answer, level){
+      let resolver = promise.pending();
+      Question.model.findByIdAndUpdate(id, {
+          'question' : question
+        , 'answer' : answer
+        , 'level' : level
+      })
+      .then(function(row) {
+        resolver.resolve(row);
+      }).catch(function(error) {
+        resolver.reject(error);
+      });
+      return resolver.promise;
+    }
+
     show(id){
       let resolver = promise.pending();
-      Question.findById(id)
+      Question.model.findById(id)
       .then(function(rows) {
         resolver.resolve(rows);
       }).catch(function(error) {

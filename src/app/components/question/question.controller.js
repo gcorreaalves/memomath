@@ -25,16 +25,47 @@
   }
 
   Controller.prototype.create = function(){
-    if( this.question.question && this.question.answer ){
-      let result = Service.create(this.question);
-      result.then((data) => {
-        if( data.status === 201 ){
-          State.go('app.dashboard.questions');
-        }
-      }, (errors) => {
+    let result = Service.create(this.question);
+    result.then((data) => {
+      if( data.status === 201 ){
+        State.go('app.dashboard.questions');
+      }
+    }, (errors) => {
 
-      });
+    });
+  };
+
+  Controller.prototype.edit = function(id){
+    let result = Service.update(id, this.question);
+    result.then( (data) => {
+      State.go('app.dashboard.questions');
+    }, (errors) => {
+      console.log(errors);
+    });
+  };
+
+  Controller.prototype.save = function(){
+    let id = State.params.id;
+
+    if( this.question.question && this.question.answer && this.question.level ){
+      if(id){
+        return this.edit(id);
+      }
+      return this.create();
+    }else{
+      console.log('Missing fields....');
     }
+
+  };
+
+  Controller.prototype.show = function(){
+    let id = State.params.id;
+    let result = Service.show(id);
+    result.then( (data) => {
+      this.question = data.data;
+    }, (errors) => {
+
+    });
   };
 
   Controller.prototype.list = function(){
