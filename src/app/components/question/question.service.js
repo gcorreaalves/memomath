@@ -22,6 +22,10 @@
       return $http.get(`${APP.API_URL}/questions`);
     };
 
+    this.remove = function(id){
+      return $http.delete(`${APP.API_URL}/question/${id}`);
+    };
+
   }
 
 })();

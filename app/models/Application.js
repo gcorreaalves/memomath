@@ -1,7 +1,7 @@
 import db from '../database/database';
 import pluralize from 'pluralize';
 
-function make_model_methods(schema){
+function make_find_methods(schema){
   for(let prop in schema){
     if( schema.hasOwnProperty ){
       let field_name  = prop.charAt(0).toUpperCase() + prop.slice(1);
@@ -23,7 +23,7 @@ class Application{
     this.model_name = pluralize(this.constructor.name.toLowerCase());
     this.model = db.model(this.model_name, schema);
 
-    make_model_methods.call(this, schema);
+    make_find_methods.call(this, schema);
   }
 
   create(object){

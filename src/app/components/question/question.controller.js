@@ -46,4 +46,13 @@
     });
   };
 
+  Controller.prototype.remove = function(question){
+    let result = Service.remove(question._id);
+    result.then( (data) => {
+      State.go(State.current, {}, {reload:true});
+    }, (errors) => {
+      console.log(errors);
+    });
+  };
+
 })();

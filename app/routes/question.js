@@ -26,6 +26,18 @@ module.exports = function(app) {
     });
   });
 
+  app.delete('/question/:id', function(req, res){
+
+    let id = req.params.id;
+
+    Question.remove(id)
+    .done(function(data){
+      res.send( data );
+    }, function(error){
+      res.sendStatus(404);
+    });
+  });
+
   app.get('/questions', function(req, res){
     Question.list()
     .done(function(data){

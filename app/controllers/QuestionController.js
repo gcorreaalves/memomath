@@ -43,6 +43,16 @@ module.exports = function(app){
       return resolver.promise;
     }
 
+    remove(id){
+      let resolver = promise.pending();
+      Question.model.findByIdAndRemove(id)
+      .then(function(rows) {
+        resolver.resolve(rows);
+      }).catch(function(error) {
+        resolver.reject(error);
+      });
+      return resolver.promise;
+    }
   }
 
   return QuestionController;
