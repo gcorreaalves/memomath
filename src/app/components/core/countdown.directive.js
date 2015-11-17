@@ -52,7 +52,7 @@
       if ( !time ){
         scope.$emit('countdown', true) ;
         return;
-      };
+      }
 
       let t = time;
 
@@ -67,7 +67,7 @@
       html(element, days, hours, minutes, seconds);
 
       Timeout(countdown, 1000, true, scope, element, time-1);
-    };
+    }
 
     function html(element, ...date){
       element

@@ -23,7 +23,7 @@
     return QService.list();
   };
 
-  Service.prototype.get_pieces = function(questions){
+  Service.prototype.get_pieces = function(){
     let deferred = q.defer();
     let result = this.get_questions();
     result.then((data) => {

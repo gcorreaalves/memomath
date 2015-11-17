@@ -46,7 +46,7 @@
   Controller.prototype.close_piece = function(id){
     this.pieces.find( (piece) => {
       if( piece.id === id){
-        Timeout(function(){
+        Timeout( () => {
           piece.shown = false;
         }, 2000);
       }
